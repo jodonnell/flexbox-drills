@@ -1,24 +1,12 @@
 import React from 'react'
 import Header from './header'
 import Grader from './grader'
-const CodeMirror = require('react-codemirror')
-require('codemirror/mode/css/css')
+import Editor from './editor'
 require('src/application.css')
 
 class CssEntry extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { code: '.container {\n  display:flex;\n}' }
-    }
-
     componentDidMount() {
         this.grader = new Grader()
-    }
-
-    updateCode(newCode) {
-	this.setState({
-	    code: newCode,
-	})
     }
 
     check() {
@@ -30,11 +18,6 @@ class CssEntry extends React.Component {
     }
 
     render() {
-        const options = {
-	    lineNumbers: true,
-            mode: 'css'
-        }
-
         const containerStyle = {
             backgroundColor: 'beige',
             border: '3px solid black',
@@ -61,11 +44,7 @@ class CssEntry extends React.Component {
         return (
             <div>
               <Header />
-              <CodeMirror value={this.state.code} onChange={this.updateCode.bind(this)} options={options} />
-
-              <style>
-                {this.state.code}
-              </style>
+              <Editor />
 
               <button onClick={this.check.bind(this)}>Test</button>
 
