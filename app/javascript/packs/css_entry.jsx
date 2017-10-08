@@ -20,7 +20,7 @@ class CssEntry extends React.Component {
             mode: 'css'
         }
 
-        const containerChild = {
+        const containerStyle = {
             backgroundColor: 'beige',
             border: '3px solid black',
             marginTop: 30
@@ -37,6 +37,12 @@ class CssEntry extends React.Component {
             textAlign: 'center'
         }
 
+
+        const answerStyle = Object.assign({display: 'flex',
+                                           flexDirection: 'row-reverse'
+                                          }, containerStyle)
+
+
         return (
             <div>
               <CodeMirror value={this.state.code} onChange={this.updateCode.bind(this)} options={options} />
@@ -44,10 +50,20 @@ class CssEntry extends React.Component {
               <style>
                 {this.state.code}
               </style>
-              <div style={containerChild} className="container">
+              <div style={containerStyle} className="container">
                 {[...Array(19)].map((x, i) => {
                     return <div key={i} style={childStyle} className="child">{i + 1}</div>
                 })}
+              </div>
+
+              <div>
+                Match Me!
+
+                <div style={answerStyle} className="answer-container">
+                  {[...Array(19)].map((x, i) => {
+                      return <div key={i} style={childStyle} className="answer-child">{i + 1}</div>
+                  })}
+                </div>
               </div>
             </div>
         )
