@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './header'
+import Grader from './grader'
 const CodeMirror = require('react-codemirror')
-const html2canvas = require('html2canvas')
 require('codemirror/mode/css/css')
 require('src/application.css')
 
@@ -11,6 +11,10 @@ class CssEntry extends React.Component {
         this.state = { code: '.container {\n  display:flex;\n}' }
     }
 
+    componentDidMount() {
+        this.grader = new Grader()
+    }
+
     updateCode(newCode) {
 	this.setState({
 	    code: newCode,
@@ -18,16 +22,11 @@ class CssEntry extends React.Component {
     }
 
     check() {
-        const answerCanvas = html2canvas(document.querySelector('.answer-container'))
-        const userCanvas = html2canvas(document.querySelector('.container'))
-
-        Promise.all([answerCanvas, userCanvas]).then(values => {
-            if (values[0].toDataURL() === values[1].toDataURL())
-                console.log('MATCH')
-            else
-                console.log('NO MATCH')
+        this.grader.check().then(isMatch => {
+            if (isMatch) {
+                alert('YA')
+            }
         })
-
     }
 
     render() {
