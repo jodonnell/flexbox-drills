@@ -1,7 +1,9 @@
 import React from 'react'
+import Header from './header'
 const CodeMirror = require('react-codemirror')
 const html2canvas = require('html2canvas')
 require('codemirror/mode/css/css')
+require('src/application.css')
 
 class CssEntry extends React.Component {
     constructor(props) {
@@ -59,6 +61,7 @@ class CssEntry extends React.Component {
 
         return (
             <div>
+              <Header />
               <CodeMirror value={this.state.code} onChange={this.updateCode.bind(this)} options={options} />
 
               <style>

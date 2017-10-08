@@ -1,1 +1,3 @@
-import 'codemirror/lib/codemirror.css'
+@import 'codemirror/lib/codemirror.css';
+@import 'layout.css';
+@import 'header.css';
