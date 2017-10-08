@@ -1,5 +1,6 @@
 import React from 'react'
 const CodeMirror = require('react-codemirror')
+const html2canvas = require('html2canvas')
 require('codemirror/mode/css/css')
 
 class CssEntry extends React.Component {
@@ -12,6 +13,19 @@ class CssEntry extends React.Component {
 	this.setState({
 	    code: newCode,
 	})
+    }
+
+    check() {
+        const answerCanvas = html2canvas(document.querySelector('.answer-container'))
+        const userCanvas = html2canvas(document.querySelector('.container'))
+
+        Promise.all([answerCanvas, userCanvas]).then(values => {
+            if (values[0].toDataURL() === values[1].toDataURL())
+                console.log('MATCH')
+            else
+                console.log('NO MATCH')
+        })
+
     }
 
     render() {
@@ -50,6 +64,9 @@ class CssEntry extends React.Component {
               <style>
                 {this.state.code}
               </style>
+
+              <button onClick={this.check.bind(this)}>Test</button>
+
               <div style={containerStyle} className="container">
                 {[...Array(19)].map((x, i) => {
                     return <div key={i} style={childStyle} className="child">{i + 1}</div>
