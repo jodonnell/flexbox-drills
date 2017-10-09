@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './header'
 import Grader from './grader'
 import Editor from './editor'
-require('src/application.css')
+import 'src/application.css'
 
 class CssEntry extends React.Component {
     componentDidMount() {
@@ -34,7 +34,6 @@ class CssEntry extends React.Component {
             lineHeight: '100px',
             textAlign: 'center'
         }
-
 
         const answerStyle = Object.assign(
             {
