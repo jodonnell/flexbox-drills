@@ -1,0 +1,25 @@
+{
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "env": {
+	"browser": true,
+	"node": true
+    },
+    "plugins": [
+	"react"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "never"],
+	"react/jsx-indent": [2, 4]
+
+    }
+}

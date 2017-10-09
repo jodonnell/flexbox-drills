@@ -36,33 +36,35 @@ class CssEntry extends React.Component {
         }
 
 
-        const answerStyle = Object.assign({display: 'flex',
-                                           flexDirection: 'row-reverse'
-                                          }, containerStyle)
-
+        const answerStyle = Object.assign(
+            {
+                display: 'flex',
+                flexDirection: 'row-reverse'
+            },
+            containerStyle)
 
         return (
             <div>
-              <Header />
-              <Editor />
+                <Header />
+                <Editor />
 
-              <button onClick={this.check.bind(this)}>Test</button>
+                <button onClick={this.check.bind(this)}>Test</button>
 
-              <div style={containerStyle} className="container">
-                {[...Array(19)].map((x, i) => {
-                    return <div key={i} style={childStyle} className="child">{i + 1}</div>
-                })}
-              </div>
-
-              <div>
-                Match Me!
-
-                <div style={answerStyle} className="answer-container">
-                  {[...Array(19)].map((x, i) => {
-                      return <div key={i} style={childStyle} className="answer-child">{i + 1}</div>
-                  })}
+                <div style={containerStyle} className="container">
+                    {[...Array(19)].map((x, i) => {
+                        return <div key={i} style={childStyle} className="child">{i + 1}</div>
+                    })}
                 </div>
-              </div>
+
+                <div>
+                    Match Me!
+
+                    <div style={answerStyle} className="answer-container">
+                        {[...Array(19)].map((x, i) => {
+                            return <div key={i} style={childStyle} className="answer-child">{i + 1}</div>
+                        })}
+                    </div>
+                </div>
             </div>
         )
     }

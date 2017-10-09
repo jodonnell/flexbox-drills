@@ -9,25 +9,25 @@ class Editor extends React.Component {
     }
 
     updateCode(newCode) {
-	this.setState({
-	    code: newCode,
-	})
+        this.setState({
+            code: newCode,
+        })
     }
 
     render() {
         const options = {
-	    lineNumbers: true,
+            lineNumbers: true,
             mode: 'css'
         }
 
         return (
             <div>
-              <style>
-                {this.state.code}
-              </style>
+                <style>
+                    {this.state.code}
+                </style>
 
 
-              <CodeMirror value={this.state.code} onChange={this.updateCode.bind(this)} options={options} />
+                <CodeMirror value={this.state.code} onChange={this.updateCode.bind(this)} options={options} />
             </div>
         )
     }

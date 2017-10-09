@@ -1,4 +1,4 @@
-const html2canvas = require('html2canvas')
+import * as html2canvas from 'html2canvas'
 
 class Grader {
     constructor() {
