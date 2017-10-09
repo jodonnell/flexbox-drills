@@ -4,13 +4,19 @@ import Grader from './grader'
 import Editor from './editor'
 import Answer from './answer'
 import UserAnswer from './user_answer'
+import ProblemPicker from './problem_picker'
 import 'src/application.css'
 
 class CssEntry extends React.Component {
+    constructor(props) {
+        super(props)
+        this.problemPicker = new ProblemPicker()
+        this.problem = this.problemPicker.getProblem()
+    }
+
     componentDidMount() {
         this.grader = new Grader()
     }
-
 
     onCodeChange() {
         this.grader.check().then(isMatch => {
@@ -21,36 +27,12 @@ class CssEntry extends React.Component {
     }
 
     render() {
-        const containerStyle = {
-            backgroundColor: 'beige',
-            border: '3px solid black',
-            marginTop: 30
-        }
-
-        const childStyle = {
-            backgroundColor: 'red',
-            width: 100,
-            height: 100,
-            border: '3px solid green',
-            fontSize: 50,
-            color: 'white',
-            lineHeight: '100px',
-            textAlign: 'center'
-        }
-
-        const answerStyle = Object.assign(
-            {
-                display: 'flex',
-                flexDirection: 'row-reverse'
-            },
-            containerStyle)
-
         return (
             <div>
                 <Header />
                 <Editor onCodeChange={this.onCodeChange.bind(this)} />
-                <UserAnswer containerStyle={containerStyle} childStyle={childStyle} />
-                <Answer answerStyle={answerStyle} childStyle={childStyle} />
+                <UserAnswer containerStyle={this.problem.containerStyle()} childStyle={this.problem.childStyle()} />
+                <Answer answerStyle={this.problem.answerStyle()} childStyle={this.problem.childStyle()} />
             </div>
         )
     }
