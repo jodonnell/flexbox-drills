@@ -9,7 +9,8 @@ class CssEntry extends React.Component {
         this.grader = new Grader()
     }
 
-    check() {
+
+    onCodeChange() {
         this.grader.check().then(isMatch => {
             if (isMatch) {
                 alert('YA')
@@ -45,9 +46,7 @@ class CssEntry extends React.Component {
         return (
             <div>
                 <Header />
-                <Editor />
-
-                <button onClick={this.check.bind(this)}>Test</button>
+                <Editor onCodeChange={this.onCodeChange.bind(this)} />
 
                 <div style={containerStyle} className="container">
                     {[...Array(19)].map((x, i) => {

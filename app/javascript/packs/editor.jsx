@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 const CodeMirror = require('react-codemirror')
 require('codemirror/mode/css/css')
 
@@ -12,6 +13,12 @@ class Editor extends React.Component {
         this.setState({
             code: newCode,
         })
+
+        window.clearTimeout(this.interval)
+
+        this.interval = setTimeout(() => {
+            this.props.onCodeChange()
+        }, 400)
     }
 
     render() {
@@ -31,6 +38,10 @@ class Editor extends React.Component {
             </div>
         )
     }
+}
+
+Editor.propTypes = {
+    onCodeChange: PropTypes.func.isRequired,
 }
 
 export default Editor
