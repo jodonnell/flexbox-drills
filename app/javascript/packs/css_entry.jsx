@@ -2,6 +2,8 @@ import React from 'react'
 import Header from './header'
 import Grader from './grader'
 import Editor from './editor'
+import Answer from './answer'
+import UserAnswer from './user_answer'
 import 'src/application.css'
 
 class CssEntry extends React.Component {
@@ -47,22 +49,8 @@ class CssEntry extends React.Component {
             <div>
                 <Header />
                 <Editor onCodeChange={this.onCodeChange.bind(this)} />
-
-                <div style={containerStyle} className="container">
-                    {[...Array(19)].map((x, i) => {
-                        return <div key={i} style={childStyle} className="child">{i + 1}</div>
-                    })}
-                </div>
-
-                <div>
-                    Match Me!
-
-                    <div style={answerStyle} className="answer-container">
-                        {[...Array(19)].map((x, i) => {
-                            return <div key={i} style={childStyle} className="answer-child">{i + 1}</div>
-                        })}
-                    </div>
-                </div>
+                <UserAnswer containerStyle={containerStyle} childStyle={childStyle} />
+                <Answer answerStyle={answerStyle} childStyle={childStyle} />
             </div>
         )
     }
