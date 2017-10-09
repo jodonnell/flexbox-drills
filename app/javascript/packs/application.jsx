@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
-import CssEntry from './css_entry'
+import DrillPage from './drill_page'
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.body.appendChild(document.createElement('div'))
-    render(<CssEntry />, container)
+    render(<DrillPage />, container)
 })
