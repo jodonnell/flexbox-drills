@@ -6,3 +6,7 @@
 body.modal-open {
     overflow: hidden;
 }
+
+.ReactCodeMirror {
+    margin-bottom: 30px;
+}

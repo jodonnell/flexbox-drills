@@ -5,7 +5,6 @@ class DrillContainerDirection {
     containerStyle() {
         return {
             border: '3px solid black',
-            marginTop: 30
         }
     }
 

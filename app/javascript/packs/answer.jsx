@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 class Answer extends React.Component {
     render() {
         return (
-            <div>
-                Match Me!
+            <div style={{marginTop: 30}}>
+                <span style={{color: '#fdfdfd', fontSize: 28}}>Match Me!</span>
 
                 <div style={this.props.answerStyle} className="answer-container">
                     {[...Array(19)].map((x, i) => {
