@@ -1,4 +1,5 @@
 import * as _ from 'lodash'
+import childStyle from './red_numbered_boxes'
 
 class DrillContainerDirection {
     containerStyle() {
@@ -9,16 +10,7 @@ class DrillContainerDirection {
     }
 
     childStyle() {
-        return {
-            backgroundColor: 'red',
-            width: 100,
-            height: 100,
-            border: '3px solid green',
-            fontSize: 50,
-            color: 'white',
-            lineHeight: '100px',
-            textAlign: 'center'
-        }
+        return childStyle
     }
 
     answerStyle() {
