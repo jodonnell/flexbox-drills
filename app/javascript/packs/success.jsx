@@ -6,6 +6,15 @@ class Success extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        scroll(0, 0)
+        document.body.classList.add('modal-open')
+    }
+
+    componentWillUnmount() {
+        document.body.classList.remove('modal-open')
+    }
+
     render() {
         return (
             <div className="grading-modal" onClick={this.props.close}>

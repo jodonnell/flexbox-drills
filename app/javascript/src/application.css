@@ -2,3 +2,7 @@
 @import 'layout.css';
 @import 'header.css';
 @import 'success.css';
+
+body.modal-open {
+    overflow: hidden;
+}
