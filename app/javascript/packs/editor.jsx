@@ -30,6 +30,10 @@ class Editor extends React.Component {
         this.setState({code: this.defaultText()})
     }
 
+    getValue() {
+        return this.codeMirror.getCodeMirror().getValue()
+    }
+
     blur() {
         this.codeMirror.getCodeMirror().getInputField().blur()
     }

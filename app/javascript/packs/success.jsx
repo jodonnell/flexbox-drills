@@ -23,7 +23,7 @@ class Success extends React.Component {
                       A+
                     </div>
                     <div className="time">
-                        {this.props.completionTime / 1000}s
+                        {this.props.completionTime}s
                     </div>
                 </div>
             </div>

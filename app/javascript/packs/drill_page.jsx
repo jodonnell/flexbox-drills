@@ -15,6 +15,7 @@ class DrillPage extends React.Component {
         this.drill = this.drillPicker.getDrill()
         this.start = new Date()
         this.state = {isMatch: false, completion: null}
+        mixpanel.track('Page load')
     }
 
     componentDidMount() {
@@ -24,7 +25,9 @@ class DrillPage extends React.Component {
     onCodeChange() {
         this.grader.check().then(isMatch => {
             if (isMatch) {
-                this.setState({isMatch: true, completion: ((new Date()) - this.start)})
+                const completionTimeInSeconds = ((new Date()) - this.start) / 1000
+                mixpanel.track('Correct Answer', {completionTime: completionTimeInSeconds, answer: this.editor.getValue()})
+                this.setState({isMatch: true, completion: completionTimeInSeconds})
                 this.editor.blur()
             }
         })
