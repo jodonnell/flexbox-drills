@@ -25,6 +25,7 @@ class DrillPage extends React.Component {
         this.grader.check().then(isMatch => {
             if (isMatch) {
                 this.setState({isMatch: true, completion: ((new Date()) - this.start)})
+                this.editor.blur()
             }
         })
     }
@@ -33,6 +34,7 @@ class DrillPage extends React.Component {
         this.start = new Date()
         this.setState({isMatch: false, completion: null})
         this.problem = this.problemPicker.getProblem()
+        this.editor.reset()
     }
 
     componentDidUpdate() {
@@ -46,7 +48,7 @@ class DrillPage extends React.Component {
                     <Success completionTime={this.state.completion} close={this.nextDrill.bind(this)}/>
                 }
                 <Header />
-                <Editor onCodeChange={this.onCodeChange.bind(this)} />
+                <Editor ref={editor => this.editor = editor} onCodeChange={this.onCodeChange.bind(this)} />
                 <UserAnswer containerStyle={this.problem.containerStyle()} childStyle={this.problem.childStyle()} />
                 <Answer answerStyle={this.problem.answerStyle()} childStyle={this.problem.childStyle()} />
             </div>
