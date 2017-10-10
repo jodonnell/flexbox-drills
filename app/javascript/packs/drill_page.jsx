@@ -4,15 +4,15 @@ import Grader from './grader'
 import Editor from './editor'
 import Answer from './answer'
 import UserAnswer from './user_answer'
-import ProblemPicker from './problem_picker'
+import DrillPicker from './drill_picker'
 import Success from './success'
 import 'src/application.css'
 
 class DrillPage extends React.Component {
     constructor(props) {
         super(props)
-        this.problemPicker = new ProblemPicker()
-        this.problem = this.problemPicker.getProblem()
+        this.drillPicker = new DrillPicker()
+        this.drill = this.drillPicker.getDrill()
         this.start = new Date()
         this.state = {isMatch: false, completion: null}
     }
@@ -33,7 +33,7 @@ class DrillPage extends React.Component {
     nextDrill() {
         this.start = new Date()
         this.setState({isMatch: false, completion: null})
-        this.problem = this.problemPicker.getProblem()
+        this.drill = this.drillPicker.getDrill()
         this.editor.reset()
     }
 
@@ -49,8 +49,8 @@ class DrillPage extends React.Component {
                 }
                 <Header />
                 <Editor ref={editor => this.editor = editor} onCodeChange={this.onCodeChange.bind(this)} />
-                <UserAnswer containerStyle={this.problem.containerStyle()} childStyle={this.problem.childStyle()} />
-                <Answer answerStyle={this.problem.answerStyle()} childStyle={this.problem.childStyle()} />
+                <UserAnswer containerStyle={this.drill.containerStyle()} childStyle={this.drill.childStyle()} />
+                <Answer answerStyle={this.drill.answerStyle()} childStyle={this.drill.childStyle()} />
             </div>
         )
     }

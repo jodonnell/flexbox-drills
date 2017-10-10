@@ -1,4 +1,6 @@
-class Problem1 {
+import * as _ from 'lodash'
+
+class DrillContainerWrap {
     containerStyle() {
         return {
             border: '3px solid black',
@@ -20,13 +22,14 @@ class Problem1 {
     }
 
     answerStyle() {
+        const wrap = _.shuffle(['wrap', 'wrap-reverse'])[0]
         return Object.assign(
             {
                 display: 'flex',
-                flexDirection: 'row-reverse'
+                flexWrap: wrap
             },
             this.containerStyle())
     }
 }
 
-export default Problem1
+export default DrillContainerWrap

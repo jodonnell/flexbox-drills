@@ -1,4 +1,6 @@
-class Problem2 {
+import * as _ from 'lodash'
+
+class DrillContainerDirection {
     containerStyle() {
         return {
             border: '3px solid black',
@@ -20,13 +22,15 @@ class Problem2 {
     }
 
     answerStyle() {
+        const direction = _.shuffle(['row-reverse', 'column', 'column-reverse'])[0]
+
         return Object.assign(
             {
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: direction
             },
             this.containerStyle())
     }
 }
 
-export default Problem2
+export default DrillContainerDirection
