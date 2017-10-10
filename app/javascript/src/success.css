@@ -1,0 +1,26 @@
+.grading-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.9;
+    z-index: 5;
+}
+
+
+.info {
+    color: #fdfdfd;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.grade {
+    font-size: 400px;
+}
+
+.time {
+    font-size: 200px;
+}
