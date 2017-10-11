@@ -1,16 +1,17 @@
 import * as _ from 'lodash'
 import DrillContainerDefaults from './drill_container_defaults'
 
-class DrillContainerWrap extends DrillContainerDefaults{
+class DrillContainerAlignItems extends DrillContainerDefaults {
     answerStyle() {
-        const wrap = _.shuffle(['wrap', 'wrap-reverse'])[0]
+        const direction = _.shuffle(['flex-start', 'flex-end', 'center', 'baseline'])[0]
+
         return Object.assign(
             {
                 display: 'flex',
-                flexWrap: wrap
+                alignItems: direction
             },
             this.containerStyle())
     }
 }
 
-export default DrillContainerWrap
+export default DrillContainerAlignItems

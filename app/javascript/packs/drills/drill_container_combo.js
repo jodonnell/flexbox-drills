@@ -1,21 +1,12 @@
-import childStyle from './red_numbered_boxes'
 import DrillContainerDirection from './drill_container_direction'
 import DrillContainerWrap from './drill_container_wrap'
+import DrillContainerDefaults from './drill_container_defaults'
 
-class DrillContainerCombo {
+class DrillContainerCombo extends DrillContainerDefaults {
     constructor() {
+        super()
         this.direction = new DrillContainerDirection()
         this.wrap = new DrillContainerWrap()
-    }
-
-    containerStyle() {
-        return {
-            border: '3px solid black',
-        }
-    }
-
-    childStyle() {
-        return childStyle
     }
 
     answerStyle() {

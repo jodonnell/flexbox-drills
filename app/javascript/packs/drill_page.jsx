@@ -52,8 +52,8 @@ class DrillPage extends React.Component {
                 }
                 <Header />
                 <Editor ref={editor => this.editor = editor} onCodeChange={this.onCodeChange.bind(this)} />
-                <UserAnswer containerStyle={this.drill.containerStyle()} childStyle={this.drill.childStyle()} />
-                <Answer answerStyle={this.drill.answerStyle()} childStyle={this.drill.childStyle()} />
+                <UserAnswer drill={this.drill} containerStyle={this.drill.containerStyle()} childStyle={this.drill.childStyle()} />
+                <Answer drill={this.drill} answerStyle={this.drill.answerStyle()} childStyle={this.drill.childStyle()} />
             </div>
         )
     }

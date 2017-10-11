@@ -7,9 +7,9 @@ class Answer extends React.Component {
             <div style={{marginTop: 30}}>
                 <span style={{color: '#fdfdfd', fontSize: 28}}>Match Me!</span>
 
-                <div style={this.props.answerStyle} className="answer-container">
-                    {[...Array(19)].map((x, i) => {
-                        return <div key={i} style={this.props.childStyle} className="answer-child">{i + 1}</div>
+                <div style={this.props.drill.answerStyle()} className="answer-container">
+                    {[...Array(this.props.drill.numChildren())].map((x, i) => {
+                        return <div key={i} style={this.props.drill.childStyle(i)} className="answer-child" dangerouslySetInnerHTML={{__html: this.props.drill.content(i)}}></div>
                     })}
                 </div>
             </div>
@@ -18,8 +18,7 @@ class Answer extends React.Component {
 }
 
 Answer.propTypes = {
-    answerStyle: PropTypes.object.isRequired,
-    childStyle: PropTypes.object.isRequired
+    drill: PropTypes.object.isRequired,
 }
 
 export default Answer

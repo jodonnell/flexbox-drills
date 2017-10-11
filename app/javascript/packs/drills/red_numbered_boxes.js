@@ -1,10 +1,9 @@
 export default {
     backgroundColor: 'red',
-    width: 100,
-    height: 100,
+    padding: 8,
     border: '3px solid green',
-    fontSize: 50,
+    fontSize: 16,
     color: 'white',
-    lineHeight: '100px',
+    lineHeight: '18px',
     textAlign: 'center'
 }

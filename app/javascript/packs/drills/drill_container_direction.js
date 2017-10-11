@@ -1,17 +1,7 @@
 import * as _ from 'lodash'
-import childStyle from './red_numbered_boxes'
+import DrillContainerDefaults from './drill_container_defaults'
 
-class DrillContainerDirection {
-    containerStyle() {
-        return {
-            border: '3px solid black',
-        }
-    }
-
-    childStyle() {
-        return childStyle
-    }
-
+class DrillContainerDirection extends DrillContainerDefaults {
     answerStyle() {
         const direction = _.shuffle(['row-reverse', 'column', 'column-reverse'])[0]
 
