@@ -22,7 +22,7 @@ class Editor extends React.Component {
 
         this.interval = setTimeout(() => {
             this.props.onCodeChange()
-        }, 400)
+        }, 600)
     }
 
     reset() {

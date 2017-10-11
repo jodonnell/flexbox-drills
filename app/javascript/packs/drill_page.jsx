@@ -23,13 +23,11 @@ class DrillPage extends React.Component {
     }
 
     onCodeChange() {
-        this.grader.check().then(isMatch => {
-            if (isMatch) {
-                const completionTimeInSeconds = ((new Date()) - this.start) / 1000
-                mixpanel.track('Correct Answer', {completionTime: completionTimeInSeconds, answer: this.editor.getValue()})
-                this.setState({isMatch: true, completion: completionTimeInSeconds})
-                this.editor.blur()
-            }
+        this.grader.check(() => {
+            const completionTimeInSeconds = ((new Date()) - this.start) / 1000
+            mixpanel.track('Correct Answer', {completionTime: completionTimeInSeconds, answer: this.editor.getValue()})
+            this.setState({isMatch: true, completion: completionTimeInSeconds})
+            this.editor.blur()
         })
     }
 

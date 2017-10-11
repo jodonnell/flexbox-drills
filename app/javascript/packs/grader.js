@@ -8,8 +8,14 @@ class Grader {
         })
     }
 
-    check() {
+    check(callback) {
         return html2canvas(document.querySelector('.container')).then(canvas => {
+            resemble(canvas.toDataURL()).compareTo(this.answerImage).onComplete(function(data){
+                if (data.rawMisMatchPercentage < 1) {
+                    callback()
+                }
+            })
+
             return canvas.toDataURL() === this.answerImage
         })
     }
