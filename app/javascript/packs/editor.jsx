@@ -10,7 +10,7 @@ class Editor extends React.Component {
     }
 
     defaultText() {
-        return '.container {\n  display:flex;\n}'
+        return '.container {\n  display:flex;\n  \n}'
     }
 
     updateCode(newCode) {
