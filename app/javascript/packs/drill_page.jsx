@@ -3,7 +3,7 @@ import Header from './header'
 import Grader from './grader'
 import Editor from './editor'
 import Answer from './answer'
-import UserAnswer from './user_answer'
+import HtmlArea from './html_area'
 import DrillPicker from './drill_picker'
 import Success from './success'
 import 'src/application.css'
@@ -52,7 +52,7 @@ class DrillPage extends React.Component {
                 }
                 <Header />
                 <Editor ref={editor => this.editor = editor} onCodeChange={this.onCodeChange.bind(this)} />
-                <UserAnswer drill={this.drill} containerStyle={this.drill.containerStyle()} childStyle={this.drill.childStyle()} />
+                <HtmlArea drill={this.drill} containerClassName="container" childClassName="child" containerStyle={this.drill.containerStyle()} />
                 <Answer drill={this.drill} answerStyle={this.drill.answerStyle()} childStyle={this.drill.childStyle()} />
             </div>
         )
