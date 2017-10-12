@@ -7,7 +7,7 @@ class Answer extends React.Component {
         return (
             <div style={{marginTop: 30}}>
                 <span style={{color: '#fdfdfd', fontSize: 28}}>Match Me!</span>
-                <HtmlArea drill={this.props.drill} containerClassName="answer-container" childClassName="answer-child" containerStyle={this.props.drill.answerStyle()} />
+                <HtmlArea drill={this.props.drill} containerClassName="answer-container" childClassName="answer-child" childStyle={this.props.drill.childAnswerStyle.bind(this.props.drill)} containerStyle={this.props.drill.answerStyle()} />
             </div>
         )
     }

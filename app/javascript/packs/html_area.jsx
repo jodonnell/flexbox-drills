@@ -6,7 +6,7 @@ class HtmlArea extends React.Component {
         return (
             <div style={this.props.containerStyle} className={this.props.containerClassName}>
                 {[...Array(this.props.drill.numChildren())].map((x, i) => {
-                    return <div key={i} style={this.props.drill.childStyle(i)} className={this.props.childClassName} dangerouslySetInnerHTML={{__html: this.props.drill.content(i)}}></div>
+                    return <div key={i} style={this.props.childStyle(i)} className={this.props.childClassName} dangerouslySetInnerHTML={{__html: this.props.drill.content(i)}}></div>
                 })}
             </div>
         )
@@ -18,6 +18,7 @@ HtmlArea.propTypes = {
     containerClassName: PropTypes.string.isRequired,
     childClassName: PropTypes.string.isRequired,
     containerStyle: PropTypes.object.isRequired,
+    childStyle: PropTypes.func.isRequired,
 }
 
 export default HtmlArea

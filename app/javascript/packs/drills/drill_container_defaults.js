@@ -19,6 +19,10 @@ class DrillContainerDefaults {
     content(i) {
         return wackyContent[i]
     }
+
+    childAnswerStyle() {
+        return this.childStyle()
+    }
 }
 
 export default DrillContainerDefaults

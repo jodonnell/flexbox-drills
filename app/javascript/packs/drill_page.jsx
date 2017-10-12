@@ -50,8 +50,8 @@ class DrillPage extends React.Component {
                 }
                 <Header />
                 <Editor ref={editor => this.editor = editor} onCodeChange={this.onCodeChange.bind(this)} />
-                <HtmlArea drill={this.drill} containerClassName="container" childClassName="child" containerStyle={this.drill.containerStyle()} />
-                <Answer drill={this.drill} answerStyle={this.drill.answerStyle()} childStyle={this.drill.childStyle()} />
+                <HtmlArea drill={this.drill} containerClassName="container" childClassName="child" containerStyle={this.drill.containerStyle()} childStyle={this.drill.childStyle} />
+                <Answer drill={this.drill} />
             </div>
         )
     }

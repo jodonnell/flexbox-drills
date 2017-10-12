@@ -5,12 +5,14 @@ import DrillContainerCombo from './drills/drill_container_combo'
 import DrillContainerJustifyContent from './drills/drill_container_justify_content'
 import DrillContainerAlignItems from './drills/drill_container_align_items'
 import DrillContainerAlignContent from './drills/drill_container_align_content'
+import DrillChildOrder from './drills/drill_child_order'
 
 class DrillPicker {
     constructor() {
         this.drills = [new DrillContainerDirection(), new DrillContainerWrap(),
             new DrillContainerCombo(), new DrillContainerAlignItems(),
-            new DrillContainerJustifyContent(), new DrillContainerAlignContent()
+            new DrillContainerJustifyContent(), new DrillContainerAlignContent(),
+            new DrillChildOrder()
         ]
     }
 
